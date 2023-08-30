@@ -1,0 +1,42 @@
+.itemCard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #fff;
+    border-radius: 5px;
+    padding: 25px 15px;
+    width: 30%;
+    border: 1px solid black;
+}
+
+.itemHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+    gap: 10px;
+    margin: 20px auto;
+}
+
+.itemHeader h4 {
+    font-size: 15px;
+}
+
+.itemFooter span {
+    font-size: 25px;
+    font-weight: bold;
+}
+
+@media (max-width: 750px) {
+    .itemCard {
+        width: 20%;
+    }
+    
+    h4 {
+        font-size: 12px;
+      }
+  
+    span {
+        font-size: 20px;
+    }
+}
