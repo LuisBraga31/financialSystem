@@ -46,7 +46,7 @@ function App() {
     <>
       <Header/>
       <Info entrada={entrada} saida ={saida} total={total} />
-      <Form add={add} />
+      <Form add={add} operationList={operationList} setOperationList={setOperationList}/>
     </>
   )
 }

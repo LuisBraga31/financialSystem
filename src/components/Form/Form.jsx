@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
 import styles from './Form.module.css';
+import Grid from '../Grids/Grid';
 
-const Form = ({add}) => {
+const Form = ({add, operationList, setOperationList}) => {
 
   const [desc, setDesc] = useState("");
   const [valor, setValor] = useState("");
@@ -33,28 +34,33 @@ const Form = ({add}) => {
   };
 
   return (
-    <form className={styles.form}>
-            <div className={styles.form_item}>
-                <label> Descrição </label>
-                <input type="text" value={desc} onChange={(e) => setDesc(e.target.value)} />
-            </div>
+    <>
+      <form className={styles.form}>
+              <div className={styles.form_item}>
+                  <label> Descrição </label>
+                  <input type="text" value={desc} onChange={(e) => setDesc(e.target.value)} />
+              </div>
 
-            <div className={styles.form_item}>
-                <label> Valor </label>
-                <input type="number" value={valor} onChange={(e) => setValor(e.target.value)}/>
-            </div>
-            
-            <div className={styles.form_radio}>
-                <input type="radio" name="webmaster" value="entrada" onChange={() => setTipo(!tipo)} checked/> 
-                <label> Entrada </label>
-                <input type="radio" name="webmaster" value="saida" onChange={() => setTipo(!tipo)}/> 
-                <label> Saída </label>    
-            </div>
+              <div className={styles.form_item}>
+                  <label> Valor </label>
+                  <input type="number" value={valor} onChange={(e) => setValor(e.target.value)}/>
+              </div>
+              
+              <div className={styles.form_radio}>
+                  <input type="radio" name="webmaster" value="entrada" onChange={() => setTipo(!tipo)} checked/> 
+                  <label> Entrada </label>
+                  <input type="radio" name="webmaster" value="saida" onChange={() => setTipo(!tipo)}/> 
+                  <label> Saída </label>    
+              </div>
 
-            
-            <button className={styles.form_button} onClick={salvar}> Adicionar </button>
-        
-    </form>
+              
+              <button className={styles.form_button} onClick={salvar}> Adicionar </button>
+          
+      </form>
+
+      <Grid itens={operationList} setItens={setOperationList}/>
+    </>
+
   )
 }
 
