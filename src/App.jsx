@@ -6,9 +6,8 @@ import Info from './components/Infos/Info';
 
 function App() {
 
-  const data = localStorage.getItem("operatios");
+  const data = localStorage.getItem("operations");
   const [operationList, setOperationList] = useState(data ? JSON.parse(data) : []);
-
   const [entrada, setEntrada] = useState(0);
   const [saida, setSaida] = useState(0);
   const [total, setTotal] = useState(0);
@@ -26,18 +25,18 @@ function App() {
     const saida = somaSaida.reduce((acc, cur) => acc + cur, 0).toFixed(2);
     const entrada = somaEntrada.reduce((acc, cur) => acc + cur, 0).toFixed(2);
 
-    const total = (entrada - saida).toFixed(2);
+    const total = Math.abs(entrada - saida).toFixed(2);
 
-    setEntrada(entrada);
-    setSaida(saida);
-    setTotal(total);
+    setEntrada(`R$ ${entrada}`);
+    setSaida(`R$ ${saida}`);
+    setTotal(`${Number(entrada) < Number(saida) ? "-" : ""}R$ ${total}`);
 
-  }, [operationList])
+  }, [operationList]);
 
   return (
     <>
       <Header/>
-      <Info/>
+      <Info entrada={entrada} saida ={saida} total={total} />
       <Form/>
     </>
   )

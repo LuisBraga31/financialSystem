@@ -1,7 +1,7 @@
 import React from 'react'
 import styles from './InfoItem.module.css';
 
-const InfoItem = ({title}) => {
+const InfoItem = ({title, value}) => {
   return (
     <div className={styles.itemCard}>
         <div className={styles.itemHeader}>
@@ -10,7 +10,7 @@ const InfoItem = ({title}) => {
         </div>
         
         <div className={styles.itemFooter}>
-            <span> O valor em breve </span>
+            <span> {value} </span>
         </div>
     </div>
   )
