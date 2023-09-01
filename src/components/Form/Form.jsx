@@ -1,11 +1,13 @@
 import React, { useState } from 'react'
 import styles from './Form.module.css';
 
-const Form = () => {
+const Form = ({add}) => {
 
   const [desc, setDesc] = useState("");
   const [valor, setValor] = useState("");
   const [tipo, setTipo] = useState(false);
+
+  const gerarId = () => Math.round(Math.random() * 1000);
 
   const salvar = () => {
     
@@ -15,7 +17,19 @@ const Form = () => {
     } else if(valor < 1) {
       alert("Informe uma entrada positiva");
       return;
-    } 
+    }
+    
+    const operation = {
+      id: gerarId(),
+      desc: desc,
+      valor: valor,
+      tipo: tipo 
+    };
+
+    add(operation);
+    setDesc("");
+    setValor("");
+
   };
 
   return (
@@ -31,14 +45,14 @@ const Form = () => {
             </div>
             
             <div className={styles.form_radio}>
-                <input type="radio" name="webmaster" value="entrada" onChange={() => setTipo(!tipo)}/> 
+                <input type="radio" name="webmaster" value="entrada" onChange={() => setTipo(!tipo)} checked/> 
                 <label> Entrada </label>
                 <input type="radio" name="webmaster" value="saida" onChange={() => setTipo(!tipo)}/> 
                 <label> Saída </label>    
             </div>
 
             
-            <button className={styles.form_button}> Adicionar </button>
+            <button className={styles.form_button} onClick={salvar}> Adicionar </button>
         
     </form>
   )

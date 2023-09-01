@@ -15,12 +15,12 @@ function App() {
   useEffect( () => {
 
     const somaSaida = operationList
-      .filter((item) => item.saida)
-      .map((operation) => Number(operation.soma));
+      .filter((item) => item.tipo)
+      .map((operation) => Number(operation.valor));
 
     const somaEntrada = operationList
-      .filter((item) => !item.saida)
-      .map((operation) => Number(operation.soma));
+      .filter((item) => !item.tipo)
+      .map((operation) => Number(operation.valor));
 
     const saida = somaSaida.reduce((acc, cur) => acc + cur, 0).toFixed(2);
     const entrada = somaEntrada.reduce((acc, cur) => acc + cur, 0).toFixed(2);
@@ -46,7 +46,7 @@ function App() {
     <>
       <Header/>
       <Info entrada={entrada} saida ={saida} total={total} />
-      <Form/>
+      <Form add={add} />
     </>
   )
 }
