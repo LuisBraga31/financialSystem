@@ -33,6 +33,15 @@ function App() {
 
   }, [operationList]);
 
+  const add = (operation) => {
+
+    const operationsArray = [...operationList, operation];
+    setOperationList(operationList);
+
+    localStorage.setItem("operations", JSON.stringify(operationsArray));
+
+  }
+
   return (
     <>
       <Header/>
