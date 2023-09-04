@@ -6,7 +6,6 @@
     border-radius: 5px;
     padding: 25px 15px;
     width: 30%;
-    border: 1px solid black;
 }
 
 .itemHeader {
@@ -14,7 +13,6 @@
     align-items: center;
     justify-content: space-around;
     width: 100%;
-    gap: 10px;
     margin: 20px auto;
 }
 
@@ -32,11 +30,18 @@
         width: 20%;
     }
     
-    h4 {
+    .itemHeader h4 {
         font-size: 12px;
       }
   
-    span {
+      .itemFooter span {
         font-size: 20px;
     }
+}
+
+@media (max-width: 650px) {
+    .itemCard {
+        width: 35%;
+    }
+    
 }

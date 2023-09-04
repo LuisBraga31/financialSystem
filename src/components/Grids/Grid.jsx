@@ -17,7 +17,7 @@ const Grid = ({itens, setItens}) => {
                 <th className={styles.th40}> Descrição </th>
                 <th className={styles.th40}> Valor </th>
                 <th className={styles.th10}> Tipo </th>
-                <th className={styles.th10}> </th>
+                <th className={styles.th10}> Remover </th>
             </tr>
         </thead>
         <tbody>
