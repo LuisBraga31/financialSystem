@@ -23,7 +23,7 @@ const Form = ({add, operationList, setOperationList}) => {
     const operation = {
       id: gerarId(),
       desc: desc,
-      valor: valor,
+      valor: parseFloat(valor).toFixed(2),
       tipo: tipo 
     };
 
