@@ -50,9 +50,9 @@ const Form = ({add, operationList, setOperationList}) => {
               </div>
               
               <div className={styles.form_radio}>
-                  <input type="radio" name="webmaster" value="entrada" onChange={() => setTipo(!tipo)} /> 
+                  <input type="radio" name="webmaster" value="entrada" onChange={() => setTipo(false)} /> 
                   <label> Entrada </label>
-                  <input type="radio" name="webmaster" value="saida" onChange={() => setTipo(!tipo)}/> 
+                  <input type="radio" name="webmaster" value="saida" onChange={() => setTipo(true)}/> 
                   <label> Saída </label>    
               </div>
 
