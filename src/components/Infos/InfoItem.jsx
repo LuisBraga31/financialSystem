@@ -10,7 +10,7 @@ const InfoItem = ({title, value}) => {
         </div>
         
         <div className={styles.itemFooter}>
-            <span> {value} </span>
+            <span className={value.includes('-') ? styles.red : ""}> {value} </span>
         </div>
     </div>
   )

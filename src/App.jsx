@@ -8,28 +8,33 @@ function App() {
 
   const data = localStorage.getItem("operations");
   const [operationList, setOperationList] = useState(data ? JSON.parse(data) : []);
-  const [entrada, setEntrada] = useState(0);
-  const [saida, setSaida] = useState(0);
-  const [total, setTotal] = useState(0);
+  const [entrada, setEntrada] = useState('');
+  const [saida, setSaida] = useState('');
+  const [total, setTotal] = useState('');
 
   useEffect( () => {
-
+    console.log(operationList);
+    
     const somaSaida = operationList
       .filter((item) => item.tipo)
       .map((operation) => Number(operation.valor));
+
+      //console.log(somaSaida);
 
     const somaEntrada = operationList
       .filter((item) => !item.tipo)
       .map((operation) => Number(operation.valor));
 
-    const saida = somaSaida.reduce((acc, cur) => acc + cur, 0).toFixed(2);
-    const entrada = somaEntrada.reduce((acc, cur) => acc + cur, 0).toFixed(2);
+      //console.log(somaEntrada);
 
-    const total = Math.abs(entrada - saida).toFixed(2);
+    const saida = somaSaida.reduce((total, vatual) => total + vatual, 0).toFixed(2);
+    const entrada = somaEntrada.reduce((total, vatual) => total + vatual, 0).toFixed(2);
+
+    const total = (entrada - saida).toFixed(2);
 
     setEntrada(`R$ ${entrada}`);
     setSaida(`R$ ${saida}`);
-    setTotal(`${Number(entrada) < Number(saida) ? "-" : ""}R$ ${total}`);
+    setTotal(`R$ ${total}`);
 
   }, [operationList]);
 
