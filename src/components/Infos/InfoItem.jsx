@@ -1,12 +1,13 @@
 import React from 'react'
 import styles from './InfoItem.module.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-const InfoItem = ({title, value}) => {
+const InfoItem = ({title, value, icon}) => {
   return (
     <div className={styles.itemCard}>
         <div className={styles.itemHeader}>
             <h4> {title} </h4>
-            <span> IC </span> 
+            <span> <FontAwesomeIcon icon={icon} /> </span> 
         </div>
         
         <div className={styles.itemFooter}>

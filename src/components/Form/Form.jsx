@@ -6,7 +6,7 @@ const Form = ({add, operationList, setOperationList}) => {
 
   const [desc, setDesc] = useState("");
   const [valor, setValor] = useState("");
-  const [tipo, setTipo] = useState(false);
+  const [tipo, setTipo] = useState(null);
 
   const gerarId = () => Math.round(Math.random() * 1000);
 
@@ -17,6 +17,9 @@ const Form = ({add, operationList, setOperationList}) => {
       return;
     } else if(valor < 1) {
       alert("Informe uma entrada positiva");
+      return;
+    } else if (tipo === null) {
+      alert("Seleicione o tipo da operação");
       return;
     }
     
@@ -47,7 +50,7 @@ const Form = ({add, operationList, setOperationList}) => {
               </div>
               
               <div className={styles.form_radio}>
-                  <input type="radio" name="webmaster" value="entrada" onChange={() => setTipo(!tipo)} checked/> 
+                  <input type="radio" name="webmaster" value="entrada" onChange={() => setTipo(!tipo)} /> 
                   <label> Entrada </label>
                   <input type="radio" name="webmaster" value="saida" onChange={() => setTipo(!tipo)}/> 
                   <label> Saída </label>    

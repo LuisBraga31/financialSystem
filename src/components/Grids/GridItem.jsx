@@ -1,7 +1,7 @@
 import React from 'react'
 import styles from './GridItem.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faTrash } from '@fortawesome/free-solid-svg-icons'
+import { faTrash, faCircleDown, faCircleUp } from '@fortawesome/free-solid-svg-icons'
 
 
 const GridItem = ( {item, onDelete}) => {
@@ -10,9 +10,9 @@ const GridItem = ( {item, onDelete}) => {
         <td> {item.desc} </td>
         <td> {item.valor} </td>
         <td className={styles.thcenter}> {!item.tipo ? 
-            (<span className={styles.entrada}> . </span>) 
+            (<span className={styles.entrada}> <FontAwesomeIcon icon={faCircleUp} /> </span>) 
             : 
-            (<span className={styles.saida}> . </span>)}</td>
+            (<span className={styles.saida}> <FontAwesomeIcon icon={faCircleDown} /> </span>)}</td>
         <td className={styles.thcenter}> 
             <FontAwesomeIcon className={styles.delete} icon={faTrash} onClick= {() => onDelete(item.id)} /> 
         </td>

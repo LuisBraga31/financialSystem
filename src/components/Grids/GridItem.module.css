@@ -6,16 +6,10 @@
 }
 
 .entrada {
-    background-color: rgb(0, 255, 0);
-    padding: 0px 8px;
-    border-radius: 55px;
     color: rgb(0, 255, 0);
 }
 
 .saida {
-    background-color: red;
-    padding: 0px 8px;
-    border-radius: 55px;
     color: red;
 }
 
